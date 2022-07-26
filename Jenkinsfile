@@ -20,7 +20,7 @@ pipeline {
 
             steps {
 
-                sh "cd /var/lib/jenkins/cvat_data/cvat-dev/; docker-compose -f docker-compose.yml -f docker-compose.dev.yml build"
+                sh "cd /var/lib/jenkins/cvat_data/dev-cvat/; docker-compose -f docker-compose.yml -f docker-compose.dev.yml build"
 
             }
 
@@ -52,9 +52,9 @@ pipeline {
 
 		echo "Deploy.."
 		
-                sh "cd /var/lib/jenkins/cvat_data/cvat-dev/ && docker-compose down"
+                sh "cd /var/lib/jenkins/cvat_data/dev-cvat/ && docker-compose down"
 	            sh "docker rm -f '\$(docker ps -aq | grep -v bitbucket)'"
-                sh "cd /var/lib/jenkins/cvat_data/cvat-dev/ && docker-compose up -d"
+                sh "cd /var/lib/jenkins/cvat_data/dev-cvat/ && docker-compose up -d"
 		
 
 
