@@ -6,7 +6,7 @@ pipeline {
 		echo "Cloning Git"
 		sh "rm -rf /var/lib/jenkins/cvat_data"
 		sh "mkdir /var/lib/jenkins/cvat_data"
-		sh "cd /var/lib/jenkins/cvat_data ; git clone http://10.40.41.57:7990/scm/cvat/cvat-dev.git"
+		sh "cd /var/lib/jenkins/cvat_data ; git clone https://github.com/Shivendratiwari0020/dev-cvat.git"
 		
             }
 
@@ -53,7 +53,7 @@ pipeline {
 		echo "Deploy.."
 		
                 sh "cd /var/lib/jenkins/cvat_data/cvat-dev/ && docker-compose down"
-	        sh "docker rm -f '\$(docker ps -aq | grep -v bitbucket)'"
+	            sh "docker rm -f '\$(docker ps -aq | grep -v bitbucket)'"
                 sh "cd /var/lib/jenkins/cvat_data/cvat-dev/ && docker-compose up -d"
 		
 
