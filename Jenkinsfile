@@ -32,7 +32,7 @@ pipeline {
                     if (env.BRANCH_NAME == 'master') 
                     {
                         echo 'Deploy in ${env.BRANCH_NAME} Server'
-                        sh "docker-compose down ; --rmi all -v"
+                        sh "docker-compose down --rmi all -v"
                         sh "docker-compose up -d"
                         
                     } 
