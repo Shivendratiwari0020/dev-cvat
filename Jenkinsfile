@@ -8,10 +8,10 @@ pipeline {
        stage('Clone') {
             steps {
                script {
-                    if (env.BRANCH_NAME == 'master') 
+                    if (env.BRANCH_NAME == 'test') 
                     {
                        echo 'Cloning the latest Repo' 
-                       sh "sh /var/lib/jenkins/scripts/clone.sh 10.40.41.23 master" 
+                       sh "sh /var/lib/jenkins/scripts/clone.sh 10.40.41.57 test" 
            
                     } 
 
@@ -23,10 +23,10 @@ pipeline {
         stage('Build') {
             steps {
                script {
-                   if (env.BRANCH_NAME == 'master') 
+                   if (env.BRANCH_NAME == 'test') 
                     {
                        echo 'Building the latest Images' 
-                       sh "sh /var/lib/jenkins/scripts/build.sh 10.40.41.23 master" 
+                       sh "sh /var/lib/jenkins/scripts/build.sh 10.40.41.57 test" 
            
                     } 
 
@@ -38,10 +38,10 @@ pipeline {
        stage('Deploy') {
             steps {
                script {
-                   if (env.BRANCH_NAME == 'master') 
+                   if (env.BRANCH_NAME == 'test') 
                     {
                        echo 'Deploying' 
-                       sh "sh /var/lib/jenkins/scripts/deploy.sh 10.40.41.23 master" 
+                       sh "sh /var/lib/jenkins/scripts/deploy.sh 10.40.41.57 test" 
            
                     } 
 
