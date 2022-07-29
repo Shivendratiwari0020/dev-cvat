@@ -41,7 +41,7 @@ pipeline {
                    if (env.BRANCH_NAME == 'master') 
                     {
                        echo 'Deploying' 
-               //        sh "sh /var/lib/jenkins/scripts/build.sh 10.40.41.23 master" 
+                       sh "sh /var/lib/jenkins/scripts/deploy.sh 10.40.41.23 master" 
            
                     } 
 
